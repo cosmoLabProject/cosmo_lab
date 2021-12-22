@@ -8,6 +8,6 @@ public class CosmoLabApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CosmoLabApplication.class, args);
+		System.out.println("Hello cosmoLab");
 	}
-
 }
