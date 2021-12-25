@@ -1,0 +1,30 @@
+.title {
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    justify-items: center;
+}
+
+.menu-block {
+    display: flex;
+    justify-content: center;
+    width:20%;
+}
+
+.menu-block a {
+    color: black;
+}
+
+.analyzing-block {
+    display: flex;
+    justify-content: center;
+}
+
+.analyzing-item {
+    border: solid 1px;
+    margin: 10px;
+}

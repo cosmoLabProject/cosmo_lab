@@ -1,0 +1,54 @@
+.title {
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    justify-items: center;
+}
+
+.menu-block {
+    display: flex;
+    justify-content: center;
+    width:20%;
+}
+
+.menu-block a {
+    color: black;
+}
+
+.add-item {
+    display: flex;
+    justify-content: space-evenly;
+    width:100%;
+}
+
+.add-item-left {
+    margin-right: 20px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-item-right {
+    margin-right: 20px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    height: 105px;
+}
+
+.btn-block {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.btn-block :nth-child(1) {
+    margin-right: 10px;
+}

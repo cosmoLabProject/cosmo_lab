@@ -16,8 +16,9 @@ public class AdminController {
     private AdminService adminService;
 
     @GetMapping("/checkDb")
-    public void checkDb() throws Exception {
+    public String checkDb() throws Exception {
         int result = adminService.checkDb();
         System.out.println(result);
+        return "admin/admin";
     }
 }
