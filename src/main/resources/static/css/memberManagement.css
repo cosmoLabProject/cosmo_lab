@@ -5,8 +5,10 @@
 
 .wrapper {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    justify-items: center;
+    grid-template-columns: 1fr 3fr;
+}
+.wrapper :nth-child(1){
+    justify-self: center;
 }
 
 .menu-block {
@@ -20,7 +22,7 @@
 }
 
 .management-block {
-    width: 100%;
+    width: 80%;
 }
 
 .search-block {

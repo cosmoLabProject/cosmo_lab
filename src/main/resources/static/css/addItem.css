@@ -5,8 +5,10 @@
 
 .wrapper {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    justify-items: center;
+    grid-template-columns: 1fr 3fr;
+}
+.wrapper :nth-child(1){
+    justify-self: center;
 }
 
 .menu-block {
@@ -20,27 +22,11 @@
 }
 
 .add-item {
-    display: flex;
-    justify-content: space-evenly;
-    width:100%;
+    width:80%;
 }
 
-.add-item-left {
-    margin-right: 20px;
-    margin-left: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-.add-item-right {
-    margin-right: 20px;
-    margin-left: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-textarea {
-    height: 105px;
+.add-item :not(:nth-of-type(1)) {
+    margin-top: 15px;
 }
 
 .btn-block {
