@@ -7,12 +7,10 @@
     display: grid;
     grid-template-columns: 1fr 3fr;
 }
-.wrapper :nth-child(1){
-    justify-self: center;
-}
 
 .menu-block {
     display: flex;
+    justify-self: center;
     justify-content: center;
     width:20%;
 }
@@ -21,7 +19,7 @@
     color: black;
 }
 
-.item-list-block {
+.delivery-block {
     width: 80%;
 }
 
@@ -39,9 +37,8 @@
     align-items: right;
 }
 
-tr :last-child {
-    width:50px;
-    align-items: right;
+#btn-td {
+    text-align: right;
 }
 
 .modal-body :not(:nth-of-type(1)){

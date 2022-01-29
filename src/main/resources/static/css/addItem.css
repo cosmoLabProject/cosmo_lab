@@ -38,3 +38,7 @@
 .btn-block :nth-child(1) {
     margin-right: 10px;
 }
+
+.btn-block :nth-child(2) {
+    margin-top: 0px;
+}
