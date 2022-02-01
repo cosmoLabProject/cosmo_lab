@@ -3,17 +3,12 @@ searchBtn.addEventListener("click", function() {
     const category = document.querySelector("#category");
     const keyword = document.querySelector("#itemName");
     const form = document.querySelector("#search-form");
-    console.log(category.value === "-");
-    console.log(keyword.value === "");
-    if(category.value === "-") {
-        console.log("카테고리 비었음");
-        form.action = "/admin/items/"+"-"+"/"+keyword.value;
-    }else if(keyword.value === "") {
-        form.action = "/admin/items/"+category.value+"/";
-    }else {
-        form.action = "/admin/items/"+category.value+"/"+keyword.value;
-    }
+    console.log(category.value);
+    console.log(typeof category.value);
+    console.log(keyword.value);
+    console.log(typeof keyword.value);
     form.method = "get";
+    form.action = "/admin/items/search";
     form.submit();
 })
 

@@ -20,8 +20,11 @@ public interface AdminMapper {
     @Select("select product_id, kind, product_name, price1, price2, price3, available from item")
     List<ItemListDto> items();
 
-    @Select("select product_id, kind, product_name, price1, price2, price3, available from item where kind=#{kind} and product_name like `%#{product_name}%`")
-    List<ItemListDto> searchItems(@Param("kind") int category, @Param("product_name") String keyword);
+    @Select("select product_id, kind, product_name, price1, price2, price3, available from item where kind=#{kind} and product_name like '%${product_name}%'")
+    List<ItemListDto> searchItems(@Param("kind") int kind, @Param("product_name") String keyword);
+
+    @Select("select product_id, kind, product_name, price1, price2, price3, available from item where product_name like '%${product_name}%'")
+    List<ItemListDto> searchItemsByKeyword(@Param("product_name") String keyword);
 
     @Select("select product_id, kind, available, product_name, price2, image, content from item where product_id=#{productId}")
     ModifyItemDto modifyForm(@Param("productId") int productId);

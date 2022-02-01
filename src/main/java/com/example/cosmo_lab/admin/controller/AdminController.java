@@ -73,15 +73,19 @@ public class AdminController {
         return "admin/itemList";
     }
 
-    @GetMapping("/items/{category}/{keyword}")
-    public void items(@PathVariable("category") int category, @PathVariable String keyword, Model model) {
+    @GetMapping("/items/search")
+    public String items(@RequestParam("category") String category, @RequestParam("keyword") String keyword, Model model) {
         List<ItemListDto> items = new ArrayList<>();
         log.info("category={}", category);
         log.info("keyword={}", keyword);
 
-//        items = adminService.searchItems(category, keyword);
-//        model.addAttribute("items", items);
-//        return "admin/itemList";
+        if(category.equals("-")) {
+            items = adminService.searchItemsByKeyword(keyword);
+        }else{
+            items = adminService.searchItems(Integer.parseInt(category), keyword);
+        }
+        model.addAttribute("items", items);
+        return "admin/itemList";
     }
 
     @GetMapping("/modifyForm/{productId}")

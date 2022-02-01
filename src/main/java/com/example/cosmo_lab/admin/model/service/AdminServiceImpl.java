@@ -32,8 +32,13 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public List<ItemListDto> searchItems(int category, String keyword) {
-        return adminMapper.searchItems(category, keyword);
+    public List<ItemListDto> searchItems(int kind, String keyword) {
+        return adminMapper.searchItems(kind, keyword);
+    }
+
+    @Override
+    public List<ItemListDto> searchItemsByKeyword(String keyword) {
+        return adminMapper.searchItemsByKeyword(keyword);
     }
 
     @Override

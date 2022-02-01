@@ -16,7 +16,9 @@ public interface AdminService {
 
     List<ItemListDto> items();
 
-    List<ItemListDto> searchItems(int category, String keyword);
+    List<ItemListDto> searchItems(int kind, String keyword);
+
+    List<ItemListDto> searchItemsByKeyword(String keyword);
 
     ModifyItemDto modifyForm(int productId);
 
