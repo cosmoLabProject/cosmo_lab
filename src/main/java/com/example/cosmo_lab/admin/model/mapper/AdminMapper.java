@@ -4,10 +4,7 @@ import com.example.cosmo_lab.admin.model.dto.AddItemDto;
 import com.example.cosmo_lab.admin.model.dto.ItemListDto;
 import com.example.cosmo_lab.admin.model.dto.ModifyItemDto;
 import com.example.cosmo_lab.admin.model.dto.OrderDetail;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -23,6 +20,12 @@ public interface AdminMapper {
     @Select("select product_id, kind, product_name, price1, price2, price3, available from item")
     List<ItemListDto> items();
 
+    @Select("select product_id, kind, product_name, price1, price2, price3, available from item where kind=#{kind} and product_name like `%#{product_name}%`")
+    List<ItemListDto> searchItems(@Param("kind") int category, @Param("product_name") String keyword);
+
     @Select("select product_id, kind, available, product_name, price2, image, content from item where product_id=#{productId}")
     ModifyItemDto modifyForm(@Param("productId") int productId);
+
+    @Update("update item set product_name=#{productName}, kind=#{kind}, price2=#{price2}, content=#{content}, available=#{available} where product_id=#{productId}")
+    int modifyItem(ModifyItemDto modifyItemDto);
 }

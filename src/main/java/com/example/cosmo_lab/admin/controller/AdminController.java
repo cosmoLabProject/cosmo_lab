@@ -41,30 +41,6 @@ public class AdminController {
         return "admin/addItem";
     }
 
-    @GetMapping("/items")
-    public String items(Model model) throws Exception {
-        List<ItemListDto> items = new ArrayList<>();
-        items = adminService.items();
-        log.info("items={}", items);
-        model.addAttribute("items", items);
-        return "admin/itemList";
-    }
-
-    @GetMapping("/delivery")
-    public String delivery() throws Exception {
-        return "admin/delivery";
-    }
-
-    @GetMapping("/qna")
-    public String qna() throws Exception {
-        return "admin/qna";
-    }
-
-    @GetMapping("/members")
-    public String members() throws Exception {
-        return "admin/memberManagement";
-    }
-
     @PostMapping("/addItem")
     public String addItem(@ModelAttribute("item") AddItemDto item, Model model) {
 
@@ -87,6 +63,27 @@ public class AdminController {
         return "redirect:/admin/items";
     }
 
+    @GetMapping("/items")
+    public String items(Model model) throws Exception {
+        List<ItemListDto> items = new ArrayList<>();
+        items = new ArrayList<>();
+        items = adminService.items();
+        log.info("items={}", items);
+        model.addAttribute("items", items);
+        return "admin/itemList";
+    }
+
+    @GetMapping("/items/{category}/{keyword}")
+    public void items(@PathVariable("category") int category, @PathVariable String keyword, Model model) {
+        List<ItemListDto> items = new ArrayList<>();
+        log.info("category={}", category);
+        log.info("keyword={}", keyword);
+
+//        items = adminService.searchItems(category, keyword);
+//        model.addAttribute("items", items);
+//        return "admin/itemList";
+    }
+
     @GetMapping("/modifyForm/{productId}")
     @ResponseBody
     public ModifyItemDto modifyForm(@PathVariable("productId") int productId) {
@@ -96,10 +93,29 @@ public class AdminController {
         return data;
     }
 
-    @PostMapping("/modifyItem")
-    public String modifyItem(@ModelAttribute("item") ModifyItemDto itemDto) {
-        log.info("itemName={}", itemDto.getProductName());
-        log.info("itemPrice={}", itemDto.getPrice2());
+    @PutMapping("/modifyItem")
+    public String modifyItem(@ModelAttribute("item") ModifyItemDto modifyItemDto) {
+        log.info("itemId={}", modifyItemDto.getProductId());
+        log.info("itemName={}", modifyItemDto.getProductName());
+        log.info("itemPrice={}", modifyItemDto.getPrice2());
+
+        int result = adminService.modifyItem(modifyItemDto);
+        log.info("result={}", result);
         return "redirect:/admin/items";
+    }
+
+    @GetMapping("/delivery")
+    public String delivery() throws Exception {
+        return "admin/delivery";
+    }
+
+    @GetMapping("/qna")
+    public String qna() throws Exception {
+        return "admin/qna";
+    }
+
+    @GetMapping("/members")
+    public String members() throws Exception {
+        return "admin/memberManagement";
     }
 }

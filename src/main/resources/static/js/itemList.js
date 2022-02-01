@@ -1,3 +1,22 @@
+const searchBtn = document.querySelector("#searchBtn");
+searchBtn.addEventListener("click", function() {
+    const category = document.querySelector("#category");
+    const keyword = document.querySelector("#itemName");
+    const form = document.querySelector("#search-form");
+    console.log(category.value === "-");
+    console.log(keyword.value === "");
+    if(category.value === "-") {
+        console.log("카테고리 비었음");
+        form.action = "/admin/items/"+"-"+"/"+keyword.value;
+    }else if(keyword.value === "") {
+        form.action = "/admin/items/"+category.value+"/";
+    }else {
+        form.action = "/admin/items/"+category.value+"/"+keyword.value;
+    }
+    form.method = "get";
+    form.submit();
+})
+
 const btns = document.querySelectorAll(".modifyBtn");
 for(const btn of btns) {
     btn.addEventListener("click", function(e) {
@@ -27,6 +46,13 @@ for(const btn of btns) {
                 modalItemName.value = response.productName;
                 modalPrice.value = response.price2;
                 modalDescription.value = response.content;
+                const modifyBtn = document.querySelector("#submitBtn");
+                modifyBtn.addEventListener("click", function () {
+                    const modalItemId = document.querySelector("#modalItemId");
+                    modalItemId.value = parseInt(inputHidden.value);
+                    const form = document.querySelector("#modify-item");
+                    form.submit();
+                })
             },
             error: function (response) {
                 console.log(response);
@@ -35,13 +61,6 @@ for(const btn of btns) {
     })
 }
 
-const modifyBtn = document.querySelector("#submitBtn");
-modifyBtn.addEventListener("click", function () {
-    const itemId = document.querySelector("#itemId");
-    const modalItemId = document.querySelector("#modalItemId");
-    modalItemId.value = parseInt(itemId.value);
-    const form = document.querySelector("#modify-item");
-    form.submit();
-})
+
 
 

@@ -32,7 +32,17 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    public List<ItemListDto> searchItems(int category, String keyword) {
+        return adminMapper.searchItems(category, keyword);
+    }
+
+    @Override
     public ModifyItemDto modifyForm(int productId) {
         return adminMapper.modifyForm(productId);
+    }
+
+    @Override
+    public int modifyItem(ModifyItemDto modifyItemDto) {
+        return adminMapper.modifyItem(modifyItemDto);
     }
 }

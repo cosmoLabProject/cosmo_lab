@@ -37,16 +37,17 @@
             </ul>
         </div>
         <div class="item-list-block">
+            <form id="search-form">
             <div class="search-block">
                 <div class="category-block">
                     <label for="category" class="form-label">카테고리</label>
-                    <select id="category" class="form-select">
+                    <select id="category" class="form-select" form="search-form">
                         <option selected>-</option>
-                        <option>skin</option>
-                        <option>base</option>
-                        <option>lip</option>
-                        <option>eye</option>
-                        <option>etc</option>
+                        <option value="1">skin</option>
+                        <option value="2">base</option>
+                        <option value="3">lip</option>
+                        <option value="4">eye</option>
+                        <option value="5">etc</option>
                     </select>
                 </div>
                 <div class="input-block">
@@ -54,9 +55,10 @@
                     <input type="text" class="form-control" id="itemName">
                 </div>
                 <div class="btn-block">
-                    <button>검색</button>
+                    <button id="searchBtn" type="button">검색</button>
                 </div>
             </div>
+            </form>
             <div class="table-block">
                 <table class="table align-middle">
                     <thead>
@@ -100,6 +102,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="/admin/modifyItem" method="post" id="modify-item">
+                    <input type="hidden" name="_method" value="PUT">
                     <div class="modal-body">
                         <input type="hidden" id="modalItemId" name="productId">
                         <label for="modalCategory" class="form-label">카테고리</label>
