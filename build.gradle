@@ -31,7 +31,6 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.6.1'
 	implementation 'org.springframework.boot:spring-boot-devtools'
 	implementation('nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect')
-
 }
 
 test {
