@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주문 상세</title>
+
+    <style>
+    .btn-pay{
+        background-color: mistyrose;
+        width:130px;
+        height:50px;
+        margin: 0 auto;
+        float: right;
+        font-size:larger;
+        font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" style="width:1400px; height:1300px; margin-left:300px;" >
+        <!--배송-->
+        <table style="width:1400px; margin-top:100px;" th:each="us : ${us}" >
+            <tr>
+                <td colspan="8" style="text-align:center; height:100px; font-weight:bold; font-size:20pt; color:black; border-bottom: solid 1px gray;">주문/ 배송</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="height:50px; width:1000px; font-size:15pt; text-align:left; font-weight: bold;">
+                    배송지정보
+                </td>
+            </tr>
+            <tr style="border-top:solid 1px #d0d0e2;" >
+                <td style="width:150px; height:40px; text-align:center;font-size:10pt; font-weight: bold; color:black; background-color:mistyrose;">
+                    받으시는분
+                </td>
+                <td style="font-size:9pt; padding-left:10px;" >
+                    <span th:text="${us.name}"></span>
+                </td>
+            </tr>
+            <tr style="border-top:solid 1px #d0d0e2;">
+                <td style="width:150px; height:40px; text-align:center;font-size:10pt; font-weight: bold; color:black; background-color:mistyrose;">
+                    우편번호
+                </td>
+                <td style="font-size:9pt; padding-left:10px;">
+                    <span th:text="${us.zipcode}"></span>
+                </td>
+            </tr>
+            <tr style="border-top:solid 1px #d0d0e2;">
+                <td style="width:150px; height:40px; text-align:center;font-size:10pt; font-weight: bold; color:black; background-color:mistyrose;">
+                    주소
+                </td>
+                <td style="font-size:9pt; padding-left:10px;">
+                    <span th:text="${us.address}"></span>
+                </td>
+            </tr>
+            <tr style="border-top:solid 1px #d0d0e2;">
+                <td style="width:150px; height:40px; text-align:center;font-size:10pt; font-weight: bold; color:black; background-color:mistyrose;">
+                    휴대전화
+                </td>
+                <td style="font-size:9pt; padding-left:10px;">
+<!--                    <span th:text="${us.phone}"></span>-->
+<!--                    <input type="text" th:placeholder="${us.phone}" th:value="{us.phone}" name="phone">-->
+                </td>
+            </tr>
+<!--            <tr>-->
+<!--                <td style="width:150px; height:40px; text-align:center;font-size:10pt; font-weight: bold; color:black; background-color:mistyrose;">-->
+<!--                    배송메시지-->
+<!--                </td>-->
+<!--                <td style="font-size:9pt; padding-left:10px; ">-->
+<!--                   dddd-->
+<!--                </td>-->
+<!--            </tr>-->
+        </table>
+
+        <!-- 주문정보 -->
+        <table style="width:1400px; margin-top:100px;" th:each="us : ${us}" >
+            <tr>
+                <td colspan="2" style="height:40px; width:1000px; font-size:15pt; text-align:left; font-weight: bold; border-bottom:1px solid rgb(185, 185, 185)">
+                    주문번호
+                </td>
+            </tr>
+            <tr style="border-top:solid 1px #d0d0e2;">
+                <td style="width:150px; height:40px; text-align:center;font-size:10pt; font-weight: bold; color:black; background-color:mistyrose;">
+                    주문일자
+                </td>
+                <td style="font-size:9pt; padding-left:10px;">
+                    <script>
+                    let today = new Date();
+                    document.write(today)
+                    </script>
+                </td>
+            </tr>
+            <tr style="border-top:solid 1px #d0d0e2;">
+                <td style="width:150px; height:40px; text-align:center;font-size:10pt; font-weight: bold; color:black; background-color:mistyrose;">
+                    주문자
+                </td>
+                <td style="font-size:9pt; padding-left:10px;">
+                    <span th:text="${us.id}"></span>
+                </td>
+            </tr>
+            <tr style="border-top:solid 1px #d0d0e2; border-bottom:solid 1px #d0d0e2;">
+                <td style="width:150px; height:40px; text-align:center;font-size:10pt; font-weight: bold; color:black; background-color:mistyrose;">
+                    주문처리상태
+                </td>
+                <td style="font-size:9pt; padding-left:10px;">
+                    배송준비중
+                </td>
+            </tr>
+        </table>	
+<!--주문-->
+<table style="width:1400px; margin-top:70px;">
+    <tr>
+        <td colspan="7" style="height:40px; width:1000px; font-size:15pt; text-align:left; font-weight: bold; ">
+            주문 상품 정보
+        </td>
+    </tr>	
+    <tr style="background-color:mistyrose;">
+        <td style="width:400px; height:50px; font-size:10pt; color:black; text-align:center; font-weight: bold;"> 상품이미지</td>
+        <td style="width:400px; height:50px; font-size:10pt; color:black; text-align:center; font-weight: bold;">상품정보</td >
+        <td style="width:100px; height:50px; font-size:10pt; color:black; text-align:center; font-weight: bold;">수량</td>
+        <td style="width:100px; height:50px; font-size:10pt; color:black; text-align:center; font-weight: bold;">가격</td>
+        <td style="width:100px; height:50px; font-size:10pt; color:black; text-align:center; font-weight: bold;">옵션 가격</td>
+        <td style="width:100px; height:50px; font-size:10pt; color:black; text-align:center; font-weight: bold;"> 배송구분</td>
+    </tr>
+    <tr style="border-bottom:solid 1px #d0d0e2;"  th:each="item : ${item}">
+        <td style="width:100px; height:150px; font-size:9pt; color:black; text-align:center;">
+            <img style="height:150px; width:100px;" id="chun" th:src="@{'/images/' + ${item.image}}"/>
+        </td>
+        <td style="width:400px; height:150px; font-size:9pt; color:black; text-align:left; padding-left:30px;"  th:text="${item.product_name}">username</td >
+        <td style="width:100px; height:150px; font-size:9pt; color:black; text-align:center;">
+
+        </td>
+        <td style="width:100px; height:150px; font-size:9pt; color:black; text-align:center;">
+            <fmt:formatNumber  th:text="${item.price2}"  pattern="###,###" />원
+        </td>
+        <td style="width:100px; height:150px; font-size:9pt; color:black; text-align:center;">
+            <fmt:formatNumber value="${sum}" pattern="###,###" />원
+        </td>
+        <td style="width:100px; height:150px; font-size:9pt; color:black; text-align:center;">
+            [기본배송]<br>
+            배송비 : 무료
+        </td>
+    </tr>
+</table>
+        <!--결제-->
+        <table style="width:1400px; margin-top:70px;">
+           
+            <tr>
+                <td colspan="2" style="height:40px; width:1000px; font-size:15pt; text-align:left; font-weight: bold; border-bottom:1px solid rgb(185, 185, 185);">
+                    결제 정보
+                </td>
+            </tr>
+            <tr>
+                <td style="width:150px; height:40px; text-align:center;font-size:11pt; font-weight: bold; color:black; background-color:mistyrose;">
+                    최종결제금액
+                </td>
+                <td style="font-size:9pt; padding-left:10px;">
+                    <fmt:formatNumber th:value="${item.price2}" pattern="###,###" />원
+                </td>
+            </tr>
+            <tr style="border-top:solid 1px #d0d0e2; border-bottom:solid 1px #d0d0e2;">
+                <td style="width:150px; height:40px; text-align:center;font-size:10pt; font-weight: bold; color:black; background-color:mistyrose;">
+                    결제수단
+                </td>
+                <td style="font-size:9pt; padding-left:10px;">
+                    카카오간편결제
+                </td>
+            </tr>
+        </table>
+
+        <div class="btn" th:each="us : ${us}" id="pay">
+                <button type="button" class="btn-pay alt" id="check_pay" name="check_us" th:onclick="&{|javascript:page('${us}')|">결제하기</button>
+<!--                <input type="hidden" id="payDetail" name="payDetail" th:value="${us.id()}">-->
+        </div>
+    </div>
+
+
+
+
+</body>
+<script type="text/javascript"  th:src="@{https://cdn.iamport.kr/js/iamport.payment-1.1.8.js}"></script>
+<script type="text/javascript"  th:src="@{https://code.jquery.com/jquery-1.12.4.min.js}" ></script>
+<script type="text/javascript"  th:src="@{/js/pay.js}" ></script>
+
+</html>

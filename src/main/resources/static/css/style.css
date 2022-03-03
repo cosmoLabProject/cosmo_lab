@@ -2039,6 +2039,7 @@ a.portfoliotype:last-child:after {
 	font-weight:400;
 	font-size:17px;
 	margin-top:0;
+	width: 500px; /* 추가된 부분 */
 }
 .woocommerce form h3,.woocommerce-account h2,.woocommerce-account h3 {
 	font-size:17px;
@@ -2116,6 +2117,15 @@ a.portfoliotype:last-child:after {
 	letter-spacing:1px;
 	font-size:11px;
 	min-height:31px;
+
+}
+.woocommerce ul.products li.product {
+	transition:all 0.3s;
+	width:200px;
+}
+.woocommerce ul.products li.product:hover {
+	border:1px solid #eee;
+	padding:0px;
 }
 .woocommerce ul.products li.product {
 	transition:all 0.3s;
@@ -2286,3 +2296,32 @@ h1, h2, h3, h4, h5, h6 {
     -o-transition: border linear 0.2s,box-shadow linear 0.2s;
     transition: border linear 0.2s,box-shadow linear 0.2s;
 }
+
+.answer {
+	display: none;
+	padding-bottom: 30px;
+  }
+#faq-title {
+	font-size: 25px;
+  }
+.faq-content {
+	border-bottom: 1px solid #e0e0e0;
+  }
+.question {
+	font-size: 19px;
+	padding: 30px 0;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	background: none;
+	width: 100%;
+	text-align: left;
+  }
+.question:hover {
+	color: #2962ff;
+  }
+  [id$="-toggle"] {
+	margin-right: 15px;
+  }
+}
+
