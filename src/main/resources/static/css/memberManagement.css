@@ -1,0 +1,41 @@
+.title {
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+.wrapper :nth-child(1){
+    justify-self: center;
+}
+
+.menu-block {
+    display: flex;
+    justify-content: center;
+    width:20%;
+}
+
+.menu-block a {
+    color: black;
+}
+
+.management-block {
+    width: 80%;
+}
+
+.search-block {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.search-block div:not(:nth-child(3)) {
+    margin-right: 20px;
+}
+
+tr :last-child {
+    width:50px;
+    align-items: right;
+}

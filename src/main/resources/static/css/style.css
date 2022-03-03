@@ -2039,7 +2039,7 @@ a.portfoliotype:last-child:after {
 	font-weight:400;
 	font-size:17px;
 	margin-top:0;
-	width: 500px;
+	width: 500px; /* 추가된 부분 */
 }
 .woocommerce form h3,.woocommerce-account h2,.woocommerce-account h3 {
 	font-size:17px;
@@ -2126,6 +2126,13 @@ a.portfoliotype:last-child:after {
 .woocommerce ul.products li.product:hover {
 	border:1px solid #eee;
 	padding:0px;
+}
+.woocommerce ul.products li.product {
+	transition:all 0.3s;
+}
+.woocommerce ul.products li.product:hover {
+	border:1px solid #eee;
+	padding:20px;
 	transition:all 0.3s;
 }
 .woocommerce ul.products li.product h3 {
@@ -2316,3 +2323,5 @@ h1, h2, h3, h4, h5, h6 {
   [id$="-toggle"] {
 	margin-right: 15px;
   }
+}
+
