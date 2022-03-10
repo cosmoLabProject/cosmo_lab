@@ -3,8 +3,8 @@ package com.example.cosmo_lab.order.controller;
 import com.example.cosmo_lab.item.dto.Item;
 import com.example.cosmo_lab.order.dto.Order;
 import com.example.cosmo_lab.order.mapper.OrderMapper;
-import com.example.cosmo_lab.user.UserMapper;
 import com.example.cosmo_lab.user.model.dao.UserDao;
+import com.example.cosmo_lab.user.model.dao.UserMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class OrderController {
     private OrderMapper orderMapper;
 
     @Autowired
-    private UserMapper  userMapper;
+    private UserMapper userMapper;
 
 
    private static final Logger logger = LoggerFactory.getLogger(OrderController.class);

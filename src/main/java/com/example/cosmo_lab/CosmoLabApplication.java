@@ -6,6 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan(value= {"com.example.cosmo_lab.admin.model.mapper"})
+@MapperScan(value= {"com.example.cosmo_lab.item.model"})
+@MapperScan(value= {"com.example.cosmo_lab.order.mapper"})
+@MapperScan(value= {"com.example.cosmo_lab.user"})
+
 public class CosmoLabApplication {
 
 	public static void main(String[] args) {

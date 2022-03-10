@@ -63,4 +63,15 @@ public interface UserMapper {
     // ========== 문의 내역 조회 ==========
     @Select("SELECT * FROM QnA WHERE user_id='${user_id}' ORDER BY write_date DESC;")
     List<Question> QuestionList(int user_id);
+
+    /*
+    //아이디로 회원번호 조회
+    @Select("SELECT user_id FROM user WHERE ID='${id}';")
+    Integer getUserID(String id);
+
+ */
+    //주문자 정보 (회원번호)
+    @Select("SELECT id,name,email,zipcode,address,phone FROM user WHERE USER_ID='${user_id}';")
+    List<UserDao> getUser(Integer user_id);
+
 }
